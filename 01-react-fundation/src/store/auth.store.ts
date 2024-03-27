@@ -7,10 +7,25 @@ interface AuthState {
     name: string;
     email: string;
   };
+  login: (email: string, password: string) => void;
+  logout: () => void;
 }
 
 export const userAuthStore = create<AuthState>()((set) => ({
   status: "checking",
   token: undefined,
   user: undefined,
+  login: (email: string, password: string) => {
+    set({
+      status: "authenticated",
+      token: "ABC123",
+      user: {
+        name: "Mauricio",
+        email: email,
+      },
+    });
+  },
+  logout: () => {
+    set({ status: "unauthenticated", token: undefined, user: undefined });
+  },
 }));
