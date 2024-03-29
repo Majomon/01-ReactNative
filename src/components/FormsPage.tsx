@@ -16,7 +16,7 @@ export const FormsPage = () => {
   const onSubmit = (myForm: FormInputs) => {
     console.log(myForm);
   };
-
+/*  */
   console.log(watch("email"));
 
   return (
